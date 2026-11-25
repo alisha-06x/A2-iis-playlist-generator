@@ -1,0 +1,36 @@
+test,result,detail
+title -> study: audio moves the expected way,PASS,"energy 0.32 vs all 0.64, instrumentalness 0.75 vs all 0.16"
+button -> study: audio moves the expected way,PASS,"energy 0.32 vs all 0.64, instrumentalness 0.75 vs all 0.16"
+title -> workout: audio moves the expected way,PASS,"energy 0.83 vs all 0.64, tempo 129.34 vs all 122.34"
+button -> workout: audio moves the expected way,PASS,"energy 0.83 vs all 0.64, tempo 129.34 vs all 122.34"
+title -> party: audio moves the expected way,PASS,"danceability 0.68 vs all 0.57, energy 0.81 vs all 0.64"
+button -> party: audio moves the expected way,PASS,"danceability 0.68 vs all 0.57, energy 0.81 vs all 0.64"
+title -> relax: audio moves the expected way,PASS,"energy 0.45 vs all 0.64, acousticness 0.53 vs all 0.31"
+button -> relax: audio moves the expected way,PASS,"energy 0.45 vs all 0.64, acousticness 0.53 vs all 0.31"
+title -> drive: audio moves the expected way,PASS,energy 0.67 vs all 0.64
+button -> drive: audio moves the expected way,PASS,energy 0.67 vs all 0.64
+"tapped purpose beats title (title 'gym', button 'relax')",PASS,"energy 0.45 vs all 0.64, acousticness 0.53 vs all 0.31; note: Your title suggested 'workout', but you chose 'relax', so I used 'relax'."
+mood: joyful has higher valence than sad (same purpose),PASS,valence 0.83 vs 0.14
+mood: energetic is faster than calm (same purpose),PASS,tempo 135 vs 76 BPM
+study is calmer than workout (energy),PASS,study 0.32 < all 0.64 < workout 0.83
+slider: intent fit falls as history weight rises,PASS,intent fit 0.96 > 0.95 > 0.79 > 0.74 > 0.72
+slider: history fit rises as history weight rises,PASS,history fit 0.61 -> 0.74 -> 0.94 -> 0.98 -> 0.98
+control matters: w=0 and w=1 give different playlists,PASS,overlap (Jaccard) 0%
+unrecognised title falls back to history and says so,PASS,"I couldn't tell what this playlist is for, so I used your history only. Pick a purpose or vibe."
+every genre named in REGIONS exists in the data,PASS,32 region genres found
+title 'korean songs' -> East Asian only,PASS,"genres: {'j-rock': np.int64(3), 'j-idol': np.int64(2), 'j-pop': np.int64(2), 'mandopop': np.int64(1), 'j-dance': np.int64(1), 'cantopop': np.int64(1)}"
+title 'japanese music' -> East Asian only,PASS,"genres: {'j-rock': np.int64(3), 'j-idol': np.int64(2), 'j-pop': np.int64(2), 'mandopop': np.int64(1), 'j-dance': np.int64(1), 'cantopop': np.int64(1)}"
+title 'latin songs' -> Latin only,PASS,"genres: {'brazil': np.int64(5), 'sertanejo': np.int64(3), 'latin': np.int64(1), 'samba': np.int64(1)}"
+title 'arabic songs' -> Middle Eastern only and note mentions no Arabic genre,PASS,"genres: {'turkish': np.int64(9), 'iranian': np.int64(1)}"
+title 'international' -> ALL only,PASS,"genres: {'brazil': np.int64(3), 'swedish': np.int64(2), 'sertanejo': np.int64(2), 'mandopop': np.int64(1), 'j-idol': np.int64(1), 'malay': np.int64(1)}"
+region + purpose: 'korean study session' is East Asian AND calmer than that region's average,PASS,energy 0.36 vs region average 0.67; Purpose: study (from your title) · Regions: East Asian
+tapped region chip works like the title words,PASS,same playlist from chip and title
+no duplicate songs in a playlist,PASS,10 unique of 10
+every genre in the data is in a genre group,PASS,114 genres all grouped
+genre filter 'International': all tracks from that group,PASS,"genres returned: {'german': np.int64(4), 'british': np.int64(3), 'iranian': np.int64(1), 'french': np.int64(1), 'tango': np.int64(1)}"
+genre filter 'International' + purpose still ranks by score,PASS,best match for the purpose comes first within the group
+genre filter 'Electronic': all tracks from that group,PASS,"genres returned: {'trip-hop': np.int64(4), 'idm': np.int64(3), 'garage': np.int64(2), 'minimal-techno': np.int64(1)}"
+genre filter 'Electronic' + purpose still ranks by score,PASS,best match for the purpose comes first within the group
+genre filter 'Calm & instrumental': all tracks from that group,PASS,"genres returned: {'new-age': np.int64(3), 'ambient': np.int64(2), 'classical': np.int64(2), 'chill': np.int64(1), 'opera': np.int64(1), 'piano': np.int64(1)}"
+genre filter 'Calm & instrumental' + purpose still ranks by score,PASS,best match for the purpose comes first within the group
+history tracks excluded,PASS,no overlap with simulated history
