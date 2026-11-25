@@ -2,7 +2,7 @@
 
 **Module:** Intelligent Interactive Systems, University of Birmingham
 **Author:** Alisha Ali
-**Submitted version:**  v1.0-a2-submission, or commit hash
+**Submitted version:**  v1.0-a2-submission 
 
 A playlist generator that treats the **playlist title as the user's stated intent** (for example "study session" or "gym workout"), with an optional **vibe** for example ("calm" or "energetic"), an optional **region**, and a **history weight** the user sets.
 
@@ -32,7 +32,7 @@ Python 3, pandas,
 
 ## Data
 
-Kaggle Spotify Tracks Dataset, 114 genres: (https://www.kaggle.com/datasets/yashdev01/spotify-tracks-dataset). The CSV is included in this repository (size and licence). Download it and save it anywhere. Ensure to update filepath in music.py file
+Kaggle Spotify Tracks Dataset, 114 genres: is included in the reprisotory alternatively the link it provided here (https://www.kaggle.com/datasets/yashdev01/spotify-tracks-dataset).  Download it and save it anywhere. Ensure to update filepath in music.py file
 
 ## How to run
 
